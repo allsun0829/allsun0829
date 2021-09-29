@@ -11,8 +11,6 @@ from django.template import loader
 
 # Create your views here.
 def about(request): 
-    # template = loader.get_template('polls/about.html')
-    # return HttpResponse(template.render( request))
     return render(request, 'apps/about.html')
 def products(request): 
     return render(request, 'apps/products.html')

@@ -8,6 +8,7 @@ urlpatterns = [
     # url마다 이름 지정 > 템플릿 변경 불필요 
 
     path('index.html', views.index, name="index"),
+    path('about', views.about, name="about"),
     path('about.html', views.about, name="about"),
     path('products.html', views.products, name="products"),
     path('store.html', views.store, name="store"),
