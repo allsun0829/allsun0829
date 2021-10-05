@@ -15,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'css/css.css' %}">
     </head>
     <body>
         
@@ -32,9 +33,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html">Archive</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html">Review</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="products.html">Notifications</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store.html">Agora</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="quiz.html">Review</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="notifications.html">Notifications</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="agora.html">Agora</a></li>
                     </ul>
                 </div>
             </div>
@@ -48,49 +49,72 @@
                                 <span class="section-heading-upper">Come On In</span>
                                 <span class="section-heading-lower">We're Open</span>
                             </h2>
-                            <table class="table table-striped">
-                                <thead>
-                                    <th>No</th>
-                                    <th>제목</th>
-                                    <th>작성자</th>
-                                    <th>날짜</th>
-                                    <th>조회수</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>title 1</td>
-                                        <td>작성자 닉네임</td>
-                                        <td>2021-10-01</td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>title 2</td>
-                                        <td>작성자 닉네임2</td>
-                                        <td>2021-10-02</td>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>title 3</td>
-                                        <td>작성자 닉네임3</td>
-                                        <td>2021-10-04</td>
-                                        <td>4</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a class="btn btn-default">글쓰기</a>
-                            <!-- 페이지네이션 -->
-                            <!-- 페이지 없을 땐 안보이게 숨겨야됨 -->
-                            <div class="text-center">
-                                <ul class="pagination">
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                </ul>
+                            <div class="board_wrap">
+                                <div class="board_title">
+                                    <strong>아고라</strong>
+                                    <p>학습 QNA를 나누는 토론장입니다.</p>
+                                </div>
+                                <div class="board_list_wrap">
+                                    <div class="board_list">
+                                        <div class="top">
+                                            <div class="num">번호</div>
+                                            <div class="title">제목</div>
+                                            <div class="writer">글쓴이</div>
+                                            <div class="date">작성일</div>
+                                            <div class="count">조회</div>
+                                        </div>
+                                        <div>
+                                            <div class="num">5</div>
+                                            <div class="title"><a href="post.html">글 제목이 들어갑니다.</a></div>
+                                            <div class="writer">김이름</div>
+                                            <div class="date">2021.1.15</div>
+                                            <div class="count">33</div>
+                                        </div>
+                                        <div>
+                                            <div class="num">4</div>
+                                            <div class="title"><a href="post.html">글 제목이 들어갑니다.</a></div>
+                                            <div class="writer">김이름</div>
+                                            <div class="date">2021.1.15</div>
+                                            <div class="count">33</div>
+                                        </div>
+                                        <div>
+                                            <div class="num">3</div>
+                                            <div class="title"><a href="post.html">글 제목이 들어갑니다.</a></div>
+                                            <div class="writer">김이름</div>
+                                            <div class="date">2021.1.15</div>
+                                            <div class="count">33</div>
+                                        </div>
+                                        <div>
+                                            <div class="num">2</div>
+                                            <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
+                                            <div class="writer">김이름</div>
+                                            <div class="date">2021.1.15</div>
+                                            <div class="count">33</div>
+                                        </div>
+                                        <div>
+                                            <div class="num">1</div>
+                                            <div class="title"><a href="post.html">글 제목이 들어갑니다.</a></div>
+                                            <div class="writer">김이름</div>
+                                            <div class="date">2021.1.15</div>
+                                            <div class="count">33</div>
+                                        </div>
+                                    </div>
+                                    <div class="board_page">
+                                        <a href="#" class="bt first"><<</a>
+                                        <a href="#" class="bt prev"><</a>
+                                        <a href="#" class="num on">1</a>
+                                        <a href="#" class="num">2</a>
+                                        <a href="#" class="num">3</a>
+                                        <a href="#" class="num">4</a>
+                                        <a href="#" class="num">5</a>
+                                        <a href="#" class="bt next">></a>
+                                        <a href="#" class="bt last">>></a>
+                                    </div>
+                                    <div class="bt_wrap">
+                                        <a href="write.html" class="on">등록</a>
+                                        <a href="edit.html">수정</a>
+                                    </div>
+                                </div>
                             </div>
                             <!-- <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
                                 <li class="list-unstyled-item list-hours-item d-flex">

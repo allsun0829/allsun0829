@@ -10,14 +10,20 @@ from django.template import loader
 # from .models import Question
 
 # Create your views here.
-def about(request): 
-    return render(request, 'apps/about.html')
-def products(request): 
-    return render(request, 'apps/products.html')
-def store(request): 
-    return render(request, 'apps/store.html')
 def index(request): 
     return render(request, 'apps/index.html')
-
+def quiz(request): 
+    return render(request, 'apps/quiz.html')
+def notifications(request): 
+    return render(request, 'apps/notifications.html')
+def agora(request): 
+    return render(request, 'apps/agora.html')
+def write(request): 
+    return render(request, 'apps/write.html')
+def edit(request): 
+    return render(request, 'apps/edit.html')
+def post(request): 
+    return render(request, 'apps/post.html')
+    
 # class AboutView(generic.AboutView): 
 #     template_name = 'polls/about.html'
