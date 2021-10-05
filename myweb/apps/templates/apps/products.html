@@ -17,31 +17,7 @@
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
     <body>
-         <!-- Navigation-->
-         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container px-5">
-                <a class="navbar-brand" href="index.html">온라인 학습 커뮤니티</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <!-- 로그인 전 dropdown 회원가입 -->
-                        <li class="nav-item"><a class="nav-link" href="index.html">△△학교</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">OO님</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">마이페이지</a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                <li><a class="dropdown-item" href="blog-home.html">나의 클래스</a></li>
-                                <li><a class="dropdown-item" href="blog-post.html">수강 과목</a></li>
-                                <li><a class="dropdown-item" href="blog-post.html">나의 질문답변</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="pricing.html">로그아웃</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        
         <header>
             <h1 class="site-heading text-center text-faded d-none d-lg-block">
                 <span class="site-heading-upper text-primary mb-3">Collective Intelligence</span>
@@ -76,7 +52,54 @@
                     </div>
                     <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="assets/img/products-01.jpg" alt="..." />
                     <div class="product-item-description d-flex me-auto">
-                        <div class="bg-faded p-5 rounded"><p class="mb-0">We take pride in our work, and it shows. Every time you order a beverage from us, we guarantee that it will be an experience worth having. Whether it's our world famous Venezuelan Cappuccino, a refreshing iced herbal tea, or something as simple as a cup of speciality sourced black coffee, you will be coming back for more.</p></div>
+                        <div class="bg-faded p-5 rounded"><p class="mb-0">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>No</tr>
+                                    <tr>제목</tr>
+                                    <tr>작성자</tr>
+                                    <tr>날짜</tr>
+                                    <tr>조회수</tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>title 1</td>
+                                        <td>작성자 닉네임</td>
+                                        <td>2021-10-01</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>title 2</td>
+                                        <td>작성자 닉네임2</td>
+                                        <td>2021-10-02</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>title 3</td>
+                                        <td>작성자 닉네임3</td>
+                                        <td>2021-10-04</td>
+                                        <td>4</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a class="btn btn-default">글쓰기</a>
+                            <!-- 페이지네이션 -->
+                            <div class="text-center">
+                                <ul class="pagination">
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+
+            </ul>
+        </div>                                </ul>
+                            </div>
+                            <!-- We take pride in our work, and it shows. Every time you order a beverage from us, we guarantee that it will be an experience worth having. Whether it's our world famous Venezuelan Cappuccino, a refreshing iced herbal tea, or something as simple as a cup of speciality sourced black coffee, you will be coming back for more. -->
+                        </p></div>
                     </div>
                 </div>
             </div>
