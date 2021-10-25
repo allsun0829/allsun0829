@@ -1,0 +1,130 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/css.css' %}">
+
+<header>
+    <h1 class="site-heading text-center text-faded d-none d-lg-block">
+        <span class="site-heading-upper text-primary mb-3">Collective Intelligence</span>
+        <span class="site-heading-lower">OF BY FOR ~ STUDENT WIKI</span>
+    </h1>
+</header>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'wiki' %}">Archive</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'quiz' %}">Review</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'notice' %}">Notifications</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'qna' %}">Agora</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="page-section">
+    <div class="container">
+        <div class="product-item">
+            <div class="product-item-description d-flex me-auto">
+                <div class="bg-faded p-5 rounded"><p class="mb-0">
+                    <div class="board_wrap">
+                        <div class="board_title">
+                            <strong>공지사항</strong>
+                            <p>공지사항을 안내합니다.</p>
+                        </div>
+                        <div class="board_list_wrap">
+                            <div class="board_list">
+                                <div class="top">
+                                    <div class="num">번호</div>
+                                    <div class="title">제목</div>
+                                    <div class="writer">글쓴이</div>
+                                    <div class="date">작성일</div>
+                                    <div class="count">조회</div>
+                                </div>
+                                <div>
+                                    <div class="num">5</div>
+                                    <!-- view.html -->
+                                    <div class="title"><a href="{% url 'post' %}">글 제목이 들어갑니다.</a></div>
+                                    <div class="writer">김이름</div>
+                                    <div class="date">2021.1.15</div>
+                                    <div class="count">33</div>
+                                </div>
+                                <div>
+                                    <div class="num">4</div>
+                                    <div class="title"><a href="{% url 'post' %}">글 제목이 들어갑니다.</a></div>
+                                    <div class="writer">김이름</div>
+                                    <div class="date">2021.1.15</div>
+                                    <div class="count">33</div>
+                                </div>
+                                <div>
+                                    <div class="num">3</div>
+                                    <div class="title"><a href="{% url 'post' %}">글 제목이 들어갑니다.</a></div>
+                                    <div class="writer">김이름</div>
+                                    <div class="date">2021.1.15</div>
+                                    <div class="count">33</div>
+                                </div>
+                                <div>
+                                    <div class="num">2</div>
+                                    <div class="title"><a href="{% url 'post' %}">글 제목이 들어갑니다.</a></div>
+                                    <div class="writer">김이름</div>
+                                    <div class="date">2021.1.15</div>
+                                    <div class="count">33</div>
+                                </div>
+                                <div>
+                                    <div class="num">1</div>
+                                    <div class="title"><a href="{% url 'post' %}">글 제목이 들어갑니다.</a></div>
+                                    <div class="writer">김이름</div>
+                                    <div class="date">2021.1.15</div>
+                                    <div class="count">33</div>
+                                </div>
+                            </div>
+                            <div class="board_page">
+                                <a href="#" class="bt first"><<</a>
+                                <a href="#" class="bt prev"><</a>
+                                <a href="#" class="num on">1</a>
+                                <a href="#" class="num">2</a>
+                                <a href="#" class="num">3</a>
+                                <a href="#" class="num">4</a>
+                                <a href="#" class="num">5</a>
+                                <a href="#" class="bt next">></a>
+                                <a href="#" class="bt last">>></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- We take pride in our work, and it shows. Every time you order a beverage from us, we guarantee that it will be an experience worth having. Whether it's our world famous Venezuelan Cappuccino, a refreshing iced herbal tea, or something as simple as a cup of speciality sourced black coffee, you will be coming back for more. -->
+                </p></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section">
+    <div class="container">
+        <div class="product-item">
+            <!-- <div class="product-item-title d-flex">
+                <div class="bg-faded p-5 d-flex me-auto rounded">
+                    <h2 class="section-heading mb-0">
+                        <span class="section-heading-upper">Delicious Treats, Good Eats</span>
+                        <span class="section-heading-lower">Bakery & Kitchen</span>
+                    </h2>
+                </div>
+            </div>
+            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="assets/img/products-02.jpg" alt="..." />
+            <div class="product-item-description d-flex ms-auto">
+                <div class="bg-faded p-5 rounded"><p class="mb-0">Our seasonal menu features delicious snacks, baked goods, and even full meals perfect for breakfast or lunchtime. We source our ingredients from local, oragnic farms whenever possible, alongside premium vendors for specialty goods.</p></div>
+            </div> -->
+        </div>
+    </div>
+</section>
+<footer class="footer text-faded text-center py-5">
+    <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2021</p></div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}
