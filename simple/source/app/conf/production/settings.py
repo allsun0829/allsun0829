@@ -137,3 +137,5 @@ LOCALE_PATHS = [
 SIGN_UP_FIELDS = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 if DISABLE_USERNAME:
     SIGN_UP_FIELDS = ['first_name', 'last_name', 'email', 'password1', 'password2']
+
+YOUTUBE_DATA_API_KEY = 'AIzaSyD1PTdV1yRFFjjRjEu_DMw9X56W7kGNPwA'
