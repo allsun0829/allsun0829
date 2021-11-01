@@ -16,13 +16,15 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
 
     path('main/', wikiPageView.as_view(), name='wiki'),
-    path('main/quiz', quizPageView.as_view(), name='quiz'),
+    # path('main/quiz', quizPageView.as_view(), name='quiz'),
+    path('main/quiz', quizPage, name='quiz'),
     path('main/notice', noticePageView.as_view(), name='notice'),
     path('main/qna', qnaPageView.as_view(), name='qna'),
     path('main/qna/write', writePageView.as_view(), name='write'),
     path('main/qna/post', postPageView.as_view(), name='post'),
     path('main/qna/edit', editPageView.as_view(), name='edit'),
-    path('main/create', createPageView.as_view(), name='create'),
+    # path('main/create', createPageView.as_view(), name='create'),
+    path('main/create', createPage, name='create'),
 
 ]
 
