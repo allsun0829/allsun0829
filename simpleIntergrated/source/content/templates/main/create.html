@@ -1,0 +1,22 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+    
+
+    <h2>새 위키 쓰기</h2>
+    <form action="{% url 'wiki' %}" method='POST'>
+        <!-- ModelForm -->
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <input type="submit" value="제출">
+        <input type="button" value="취소" onclick="history.back()"/>
+        </script>
+    </form>
+
+{% endblock %}

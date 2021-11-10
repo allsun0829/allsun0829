@@ -1,0 +1,33 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+
+    <h4>{% trans 'Log in' %}</h4>
+
+    <form method="post">
+
+        {% csrf_token %}
+        {% bootstrap_form form %}
+
+        <button class="btn btn-primary">{% trans 'Log in' %}</button>
+
+    </form>
+
+    <hr>
+
+    <!-- <ul>
+        <li>
+            <a href="{% url 'accounts:restore_password' %}">{% trans '비밀번호 찾기' %}</a>
+        </li>
+        <li>
+            <a href="{% url 'accounts:remind_username' %}">{% trans '아이디 찾기' %}</a>
+        </li>
+        <li>
+            <a href="{% url 'accounts:resend_activation_code' %}">{% trans '가입 이메일 재인증' %}</a>
+        </li>
+    </ul> -->
+
+{% endblock %}
