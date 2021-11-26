@@ -1,0 +1,25 @@
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://naveropenapi.apigw.ntruss.com/text-summary/v1/summarize.js?ncpClientId=zshypox3qz"></script>
+    <title>네이버 클로바</title>
+</head>
+<body>
+    {% for data in datas %}
+            <div class="card">
+                <div class="card-body">            
+                    <span class="card-title">{{ data.title }}</span>
+                     <span class="card-text">{{ data.content }}</span>
+                </div>
+            </div>
+
+    {% endfor %}
+{% endblock %}
+</body>
+</html>

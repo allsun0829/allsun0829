@@ -1,0 +1,19 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+
+    {% trans '분류: ' %} <p>{{ request.post.title }}</p>
+    {% trans '내용: ' %} <b>{{ request.post.content }}</b>
+
+    {% else %}
+
+        {% trans '새 위키를 생성하세요.' %}
+
+    {% endif %}
+
+{% endblock %}

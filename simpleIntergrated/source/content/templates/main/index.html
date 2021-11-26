@@ -1,0 +1,17 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+
+        {% trans '사용자 이름: ' %} <b>{{ request.user.username }}</b>.
+
+    {% else %}
+
+        {% trans '로그인하세요.' %}
+
+    {% endif %}
+
+{% endblock %}
