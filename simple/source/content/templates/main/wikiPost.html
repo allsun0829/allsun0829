@@ -1,0 +1,41 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+    <!-- <form action="" method='POST'>
+
+        {% csrf_token %}
+        {{form.as_p}}
+    </form> -->
+        <script type="text/javaScript">
+            function moveWiki(){
+                location.href = "{% url 'wiki' %}";
+            }
+            function moveWikiUpdate(){
+                location.href = "{% url 'wikiUpdate' post_id %}";
+            }
+        </script>
+        
+        
+        <!-- 출처: https://dololak.tistory.com/765 [코끼리를 냉장고에 넣는 방법] -->
+        {% trans '분류: ' %} <b>{{ title }}</b><p>
+        {% trans '내용: ' %} <b>{{ content }}</b><p>
+        <p><p>
+        <button type="button" onclick="moveWiki()">목록</button>
+        <button type="button" onclick="moveWikiUpdate()">수정</button>
+
+        {% if request.user.is_superuser %}
+            <a href="{% url 'wikiDelete' post_id %}">삭제</a> 
+        {% endif %}
+
+    {% else %}
+
+        {% trans '로그인하세요.' %}
+
+    {% endif %}
+
+{% endblock %}

@@ -38,17 +38,34 @@
             {% if request.user.is_authenticated %}
                 <!-- nav-item dropdown  넣기  -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'wiki' %}">{% trans '메뉴' %}</a>
+                    <a class="nav-link" href="{% url 'wiki' %}">{% trans '위키' %}</a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'quiz' %}">{% trans '복습' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'notice' %}">{% trans '공지' %}</a>
+                    <a class="nav-link" href="{% url 'qna' %}">{% trans '질의응답' %}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'qna' %}">{% trans 'QNA' %}</a>
-                </li> -->
+                <!-- <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      사용자 정보 변경
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{% url 'accounts:change_profile' %}">프로필 변경</a></li>
+                      <a class="dropdown-item" href="{% url 'accounts:change_email' %}">이메일 변경</a>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li>
+                        <li><a class="dropdown-item" href="{% url 'accounts:change_password' %}">비밀번호 변경</a></li>
+                      </li>
+                    </ul>
+                  </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'accounts:change_password' %}">{% trans '비밀번호 변경' %}</a>
                 </li>
@@ -89,6 +106,12 @@
     {% endblock %}
 
 </div>
+
+<p><p>
+<footer class="footer text-faded text-center py-5">
+    <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2021</p></div>
+    <!-- instagram twitter email phone -->
+</footer>
 
 <script src="{% static 'vendor/jquery/jquery-3.4.1.min.js' %}"></script>
 <script src="{% static 'vendor/popper/popper.min.js' %}"></script>

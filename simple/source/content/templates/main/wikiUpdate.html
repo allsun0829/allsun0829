@@ -1,0 +1,20 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+    <h2>위키 수정하기</h2>
+    <form action="" method='POST'>
+        <!-- ModelForm -->
+        {% csrf_token %}
+        <table>
+            {{form.as_p}}
+        </table>
+
+        <input type="submit" value="수정" />
+        <input type="button" value="취소" onclick="history.back()"/>
+    </form>
+
+{% endblock %}

@@ -6,7 +6,7 @@
 
     {% if request.user.is_authenticated %}
 
-        {% trans '사용자 이름: ' %} <b>{{ request.user.username }}</b>.
+        {% trans '환영합니다! ' %} <b>{{ request.user.username }}</b>님.
 
     {% else %}
 

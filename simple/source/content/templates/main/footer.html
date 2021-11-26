@@ -2,3 +2,21 @@
     <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2021</p></div>
     <!-- instagram twitter email phone -->
 </footer>
+
+
+
+<form method="post" action="{% url 'wiki' %}">
+    {% csrf_token %}
+    <h4 class="display-6">새 위키 페이지 만들기:</h4>
+    <h6 class="post-title">과목: </h6>
+    <!-- <textarea name="title"cols="40" rows="1"></textarea> -->
+    <input type="text" title="입력" name="input1" size="62" maxlength="30" placeholder="과목 분류">        
+    <br>
+
+    <input type="text" title="입력" name="input2"style="width:500px;height:200px;font-size:15px;" placeholder="내용을 입력하세요.">        
+    <br>
+    <input  type="submit" value="저장"  />
+    <input type="button" value="취소" href="{% url 'wiki' %}" />
+    <!-- <input type="file"> -->
+    <input type="hidden" name="inputhidden" value="서버로 전송할 값">
+</form>
