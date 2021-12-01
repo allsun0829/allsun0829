@@ -129,7 +129,7 @@ def relativeVideos(request):
         'part' : 'snippet',
         'q' : 'learn python', #query
         'key' : settings.YOUTUBE_DATA_API_KEY,
-        'maxResults' : 6,
+        'maxResults' : 8,
         'type' : 'video' 
     }
     video_ids = []
