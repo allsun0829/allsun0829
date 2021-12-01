@@ -23,8 +23,8 @@ urlpatterns = [
     # path('main/wikiPost/<int:post_id>/wikiUpdate', edit, name='wikiUpdate'),
     path('main/wikiDelete/<int:pk>/', delete, name='wikiDelete'),
 
-    
-    path('main/quiz', quizPage, name='quiz'),
+    path('main/relativeVideos', relativeVideos, name='relativeVideos'),
+    path('main/quiz/', Quiz, name='quiz'),
 
     path('main/notice', noticePageView.as_view(), name='notice'),
     # path('main/notice', noticePage, name='notice'),

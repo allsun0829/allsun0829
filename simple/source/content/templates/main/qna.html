@@ -4,7 +4,7 @@
 {% load static %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/css.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/css.css' %}"> -->
 
 <header>
     <h1 class="site-heading text-center text-faded d-none d-lg-block">
@@ -95,6 +95,7 @@
                                 <a href="#" class="bt next">></a>
                                 <a href="#" class="bt last">>></a>
                             </div>
+                            <!-- https://sneakstarberry.github.io/posts/django7-pagination/ -->
                             <div class="bt_wrap">
                                 <a href="{% url 'write' %}" class="on">쓰기</a>
                                 <!-- <a href="{% url 'edit' %}">수정</a> -->

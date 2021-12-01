@@ -35,14 +35,31 @@
                 <!-- <a class="top nav-link" href="{% url 'wiki' %}">Wiki</a> -->
             </div>
             <div>
-                <a class="nav-link" href="{% url 'wikiCreate' %}">새 위키 페이지 만들기</a>
+                <a class="nav-link" href="{% url 'wikiCreate' %}">새로운 위키 만들기</a>
                 <ol id = 'wikiList'></ol>
             </div>
         </div>
     </div>
     <ul>
         {% for post in posts %}
-        <a href="{% url 'wikiPost' post.post_id %}"> <li>{{post.title}}</li> </a>
+        <!-- <a href="{% url 'wikiPost' post.post_id %}"> <li>{{post.title }}{{post.summary}}{{post.updated_at}}</li> </a> -->
+        <div class="card-columns"> 
+        <!-- column-count: 4 -->
+            <div class="card bg-light mb-3" style="max-width: 540px;">
+                <div class="row">
+                    <div class="col-md-18">
+                        <div class="card-body"><a href="{% url 'wikiPost' post.post_id %}">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <p class="card-text">{{post.summary}}</p></a>
+                            <p class="card-text">
+                                <small class="text-muted">Created at: {{ post.created_at }}</small><br/>
+                                <small class="text-muted">Updated at: {{ post.updated_at }}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>           
+            </div>
+        </div>
         {% endfor %}
     </ul>
 

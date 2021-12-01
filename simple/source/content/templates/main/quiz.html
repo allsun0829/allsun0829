@@ -69,23 +69,9 @@
 <!-- <section class="page-section about-heading"> -->
     <div class="container">
         <div class="row">
-            {% for video in videos %}
-            <div class="col-4">
-                <div class="card">
-                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ video.thumbnail }}" />
-                <div class="card-body">
-                    <!-- <h2 class="section-heading mb-4"> -->
-                        <span class="card-title">{{ video.title }}</span>
-                        <span class="card-text">{{ video.duration }}</span>
-                    <!-- </h2> -->
-                    <!-- <p class="mb-3">Every cup of our quality artisan coffee starts with locally sourced, hand picked ingredients. Once you try it, our coffee will be a blissful addition to your everyday morning routine - we guarantee it!</p> -->
-                    <div class="button mx-auto"><a class="btn btn-primary btn-xl" href="{{ video.url }}">View</a></div>
-                </div>
-                </div>
-            </div>
+           
         </div>
     </div>
-    {% endfor %}
 
 <!-- </section> -->
 </body>

@@ -139,13 +139,28 @@ class DjangoSite(models.Model):
 
 class Post(models.Model): 
     post_id = models.AutoField(primary_key = True, null = False, auto_created = True)
-    title = models.CharField(max_length=16, verbose_name='분류')
-    content = models.CharField(max_length=64, verbose_name='내용')
-    register_dttm = models.DateField(auto_now_add=True, verbose_name='수정일자')
+    category = models.CharField(max_length= 50, verbose_name='분류', null=True)
+    title = models.CharField(max_length=100, verbose_name='제목')
+    body = models.TextField(verbose_name='내용')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='생성일자', null=True)
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='수정일자')
 
     def __str__(self): 
-        return self.title 
+        return self.title
 
+    def summary(self): 
+        return self.body[0:30]+"···"
 
+class Quiz(models.Model): 
+    quiz_id = models.AutoField(primary_key = True, null = False, auto_created = True) 
+    category = models.CharField(max_length= 50)
+    title = models.CharField(max_length= 100)
+    img = models.ImageField(upload_to = "posts/image", null=True)
+    body = models.TextField()
+    answer = models.TextField() #IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.title
 
 

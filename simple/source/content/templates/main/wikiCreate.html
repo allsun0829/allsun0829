@@ -2,6 +2,7 @@
 
 {% load i18n %}
 {% load static %}
+{% load bootstrap4 %}
 
 {% block content %}
 
@@ -9,10 +10,11 @@
     <form action="" method='POST'>
         <!-- ModelForm -->
         {% csrf_token %}
+        {% bootstrap_form form %}
 
-        <table>
-            {{form.as_table}}
-        </table>
+        <!-- <table>
+            {{form.as_p}}
+        </table> -->
         <input type="submit" value="생성" />
         <input type="button" value="취소" onclick="history.back()"/>
         

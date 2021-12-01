@@ -7,6 +7,10 @@ from django.core.paginator import Paginator # 추가된 코드
 from main.models import *  
 from main.forms import * 
 from django.urls import path, re_path
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .serializers import QuizSerializer
+import random
 
 # class IndexPageView(TemplateView):
 #     template_name = 'main/index.html'
@@ -26,10 +30,13 @@ def wikiPage(request):
 def wikiPost(request, post_id):
     post = get_object_or_404(Post, post_id=post_id)
     context ={ 
-        'post' : post, 
+        # 'post' : post, 
         'post_id': post.post_id, 
+        'category': post.category, 
         'title': post.title,
-        'content': post.content, 
+        'body': post.body,
+        'created_at': post.created_at, 
+        'updated_at': post.updated_at, 
     }
     return render(request, 'main/wikiPost.html', context)
 
@@ -72,9 +79,10 @@ def edit(request, post_id):
         if form.is_valid():
             print(form.cleaned_data)
             # post.post_id = form.cleaned_data['post_id']
+            post.category = form.cleaned_data['category']
             post.title = form.cleaned_data['title']
-            post.content = form.cleaned_data['content']
-            # post.register_dttm = form.cleaned_data['register_dttm']
+            post.body = form.cleaned_data['body']
+            # post.created_at = form.cleaned_data['created_at']
             post.save()
             return redirect('/main/wikiPost/'+str(post.pk))
 
@@ -90,10 +98,29 @@ def edit(request, post_id):
     # https://ssungkang.tistory.com/entry/django-17-%EA%B8%80-%EC%82%AD%EC%A0%9C-%EB%B0%8F-%EC%88%98%EC%A0%95-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0?category=320582
 
 def delete(request, pk): 
-    context={}
+    post = Post.objects.get(pk=pk)
+    if request.method == "POST":
+        post.delete()
+        return redirect('/main/')
+    context={'post':post}
     return render(request, 'main/wikiDelete.html', context)
 
-def quizPage(request): 
+# @api_view(['GET']) #주어진 개수만큼 랜덤한 퀴즈를 반환
+# def randomQuiz(request, quiz_id):
+#     totalQuizs = Quiz.objects.all()
+#     randomQuizs = random.sample(list(totalQuizs), quiz_id)
+#     serializer = QuizSerializer(randomQuizs, many=True)
+#     return Response(serializer.data)
+
+def QuizPage(request): 
+    totalQuizs = Quiz.objects.get(quiz_id=1)
+
+    return render(request, 'main/quiz.html')
+
+def QuizDetail(request, quiz_id): 
+    return render(request, 'main/quiz.html')
+
+def relativeVideos(request): 
     # videos = []
     search_url = 'https://www.googleapis.com/youtube/v3/search'
     video_urls = 'https://www.googleapis.com/youtube/v3/videos'
@@ -102,7 +129,7 @@ def quizPage(request):
         'part' : 'snippet',
         'q' : 'learn python', #query
         'key' : settings.YOUTUBE_DATA_API_KEY,
-        'maxResults' : 4,
+        'maxResults' : 6,
         'type' : 'video' 
     }
     video_ids = []
@@ -140,7 +167,7 @@ def quizPage(request):
     context = {
         'videos' : videos
     }
-    return render(request, 'main/quiz.html', context)
+    return render(request, 'main/relativeVideos.html', context)
 
 
 
