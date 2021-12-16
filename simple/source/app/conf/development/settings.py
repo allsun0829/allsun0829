@@ -1,7 +1,8 @@
-import os
+import os#, pymysql 
 import warnings
 from django.utils.translation import ugettext_lazy as _
 from os.path import dirname
+#pymysql.install_as_MySQLdb()
 
 warnings.simplefilter('error', DeprecationWarning)
 
@@ -30,6 +31,8 @@ INSTALLED_APPS = [
     # Application apps
     'main',
     'accounts',
+    # sns share library 
+    'django_social_share',
 ]
 
 MIDDLEWARE = [
@@ -72,8 +75,19 @@ DEFAULT_FROM_EMAIL = 'test@example.com'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_db',
+        'USER' : 'root', 
+        'PASSWORD' : 'inha',
+        'HOST' : '127.0.0.1', 
+        'PORT' : '3306', 
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4', # 테이블 생성 자동으로 해줄때 쓸 인코딩,, 이거안하면 밑에꺼해도 효과 엑스
+            'use_unicode': True,
+        }
     }
 }
 

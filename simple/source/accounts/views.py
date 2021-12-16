@@ -221,7 +221,7 @@ class ChangeProfileView(LoginRequiredMixin, FormView):
         user.last_name = form.cleaned_data['last_name']
         user.save()
 
-        messages.success(self.request, _('Profile data has been successfully updated.'))
+        messages.success(self.request, _('프로필이 성공적으로 변경되었습니다.'))
 
         return redirect('accounts:change_profile')
 
@@ -260,7 +260,7 @@ class ChangeEmailView(LoginRequiredMixin, FormView):
             user.email = email
             user.save()
 
-            messages.success(self.request, _('Email successfully changed.'))
+            messages.success(self.request, _('이메일이 성공적으로 변경되었습니다.'))
 
         return redirect('accounts:change_email')
 
@@ -306,7 +306,7 @@ class ChangePasswordView(BasePasswordChangeView):
         # Re-authentication
         login(self.request, user)
 
-        messages.success(self.request, _('Your password was changed.'))
+        messages.success(self.request, _('비밀번호가 변경되었습니다.'))
 
         return redirect('accounts:change_password')
 

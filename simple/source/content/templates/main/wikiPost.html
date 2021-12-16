@@ -1,0 +1,76 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load social_share %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+    <!-- <form action="" method='POST'>
+
+        {% csrf_token %}
+        {{form.as_p}}
+    </form> -->
+        <script type="text/javaScript">
+            function moveWiki(){
+                location.href = "{% url 'wiki' %}";
+            }
+            function moveWikiUpdate(){
+                location.href = "{% url 'wikiUpdate' post_id %}";
+            }
+        </script>
+        
+        
+        <!-- 출처: https://dololak.tistory.com/765 [코끼리를 냉장고에 넣는 방법] -->
+        
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-lg-8 col-md-10 mx-auto">
+                    <h1>분류: {{ category }}</h1>
+                    <h1>제목: {{ title }}</h1>
+                    <hr>
+                    <b><p>내용: {{ body }}</p></b>
+                    요약: {{ body_summary }}
+                </div>
+            </div>
+            <p><p>
+            <div class = "row">
+                <div class = "column">
+                    <button type = button" class = "btn btn-secondary float-right">
+                        {% post_to_facebook post.get_absolute "facebook" %}
+                    </button>
+                    <button type ="button" class ="btn btn-secondary float-right">
+                        {% send_email post.title "New! {{post.title}} Check it out!" object_or_url "Share via email" %}
+                    </button>
+                    <button type ="button" class = "btn btn-secondary float-right">
+                        {% post_to_twitter '{{post.title}} 새로운 글!' post.get_absolute_url "Post to Twitter"%}
+                    </button>
+                </div>
+            </div>
+            <!-- <b>{% trans '분류: ' %} </b> {{ category }} <p>
+            <b>{% trans '제목: ' %} </b> {{ title }}<p>
+            <b>{% trans '내용: ' %} </b> {{ body }}<p> -->
+            <p> <p>
+            <div class = "row">
+                <div class = "form-group column float-right">
+                    {% if request.user.is_staff %}
+                    <button type="button" onclick="moveWikiUpdate()" class = "btn btn-primary">수정</button>
+                    {% endif %}
+                    <button type="button" onclick="moveWiki()" class = "btn btn-secondary">목록</button>
+                </div>  
+            </div>        
+      
+        </div>
+        
+        {% if request.user.is_superuser %}
+            <a href="{% url 'wikiDelete' post_id %}">삭제</a> 
+        {% endif %}
+
+    {% else %}
+
+        {% trans '로그인하세요.' %}
+
+    {% endif %}
+
+{% endblock %}

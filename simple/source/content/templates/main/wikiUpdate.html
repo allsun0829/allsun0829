@@ -1,0 +1,25 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <h2>위키 수정하기</h2>
+    <form action="" method='POST'>
+        <!-- ModelForm -->
+        {% csrf_token %}
+
+        <table>
+            {% bootstrap_form form %}
+        </table>
+
+        <div class = "form-group column float-right">
+            <input type="submit" value="수정" class = "btn btn-primary"/>
+            <input type="button" value="취소" onclick="history.back()" class = "btn btn-secondary"/> 
+        </div>
+
+    </form>
+
+{% endblock %}

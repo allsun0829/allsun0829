@@ -1,0 +1,98 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load social_share %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+<div class = "container">
+    <div class = "row">
+        <div class = "col-lg-8 col-md-10 mx-auto">
+            <h1>{{post.title}}</h1>
+            <hr>  
+            <p>{{post.body}}</p>
+        </div>
+    </div>
+    <p><p>
+    <div class = "col-lg-8 col-md-15 mx-auto">
+        <a href = "{% url 'post_delete' post.bpost_id %}" class = "btn btn-primary float-right">삭제</a>
+        <a href = "{% url 'post_update' post.bpost_id %}" class = "btn btn-secondary float-right">수정</a>
+    </div>
+
+
+    <!-- <div class = "row">
+        <div class = "column">
+            <button type = button" class = "btn btn-secondary float-right">
+                {% post_to_facebook post.get_absolute "facebook" %}
+            </button>
+            <button type ="button" class ="btn btn-secondary float-right">
+                {% send_email post.title "New! {{post.title}} Check it out!" object_or_url "Share via email" %}
+            </button>
+            <button type ="button" class = "btn btn-secondary float-right">
+                {% post_to_twitter '{{post.title}} 새로운 글!' post.get_absolute_url "Post to Twitter"%}
+            </button>
+        </div>
+    </div> -->
+</div>
+
+<p><p>
+<div class = "container">
+    <div class = "row">
+        <div class = "col-lg-8 col-md-10 mx-auto">  
+            <!-- "col-md-12 comment-bg" -->
+            <!--댓글 헤더-->
+            <div class = "page-header">
+                <h1>댓글</h1>
+                <hr>
+            </div>
+            <!--댓글 목록-->
+            <div class = "comments-list">
+                {% for comment in comments %}
+                <div class = "media">
+                    <div class = "media-body">
+                        <h4 class = "media-heading user_name">
+                            {{comment.user}}
+                        </h4>
+                        {{comment.body}}  <p> {{comment.date}}
+                        <hr>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!--댓글 작성-->
+       
+        </div>
+    </div>     
+</div>     
+
+
+<div class = "container">
+    <div class = "col-lg-8 col-md-10 mx-auto">  
+        <!-- "col-md-12 comment-bg" -->
+        
+        <!--댓글 작성-->
+        <div class = "row">
+            <!-- {% if errors %}
+            <ul>
+                {% for error in errors %}
+                <li><div class = "alert alert-primary">{{error}}</div></li>
+                {% endfor %}
+            </ul>
+            {% endif %} -->
+            <h2>댓글 쓰기</h2>
+            <form method = "POST" action = "{% url 'comment_write' post.bpost_id %}" enctype="multipart/form-data" class = "col-lg-10 col-md-12 mx-auto">
+                {% csrf_token %}
+                <input type = "hidden" name = "post_id" value = "{{post.bpost_id}}">
+                <div class = "form-group row">
+                    <textarea class = "form-control" name = "content" rows = "4" placeholder="댓글을 입력해주세요."></textarea>
+                </div>
+                <div class = "form-group column float-right">
+                <a href = "{% url 'notice' %}" class = "btn btn-secondary float-right">목록</a>
+                <a href = "{% url 'comment_write' post.bpost_id %}" class = "btn btn-primary float-right">댓글쓰기</a>
+                </div>
+            </form>
+        </div>  
+
+    </div>
+</div>
+{% endblock %}
