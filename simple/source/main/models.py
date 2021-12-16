@@ -7,6 +7,9 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 from datetime import date
+from django.contrib.auth.models import User
+import random 
+from django.utils import timezone 
 
 class AccountsActivation(models.Model):
     created_at = models.DateTimeField()
@@ -144,6 +147,7 @@ class Post(models.Model):
     body = models.TextField(verbose_name='내용')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='생성일자', null=True)
     updated_at = models.DateTimeField(auto_now=True, verbose_name='수정일자')
+    body_summary = models.TextField(verbose_name='요약', null = True)
 
     def __str__(self): 
         return self.title
@@ -163,4 +167,82 @@ class Quiz(models.Model):
     def __str__(self):
         return self.title
 
+DIFF_CHOICES = (
+    ('easy', 'easy'),
+    ('medium', 'medium'),
+    ('hard', 'hard'),
+)
 
+class Quizz(models.Model):
+    name = models.CharField(max_length=120)
+    topic = models.CharField(max_length=120)
+    number_of_questions = models.IntegerField()
+    time = models.IntegerField(help_text="duration of the quiz in minutes")
+    required_score_to_pass = models.IntegerField(help_text="required score in %")
+    difficulty = models.CharField(max_length=6, choices=DIFF_CHOICES)
+
+    def __str__(self):
+        return f"{self.name}-{self.topic}"
+
+    def get_questions(self):
+        questions = list(self.question_set.all())
+        random.shuffle(questions)
+        return questions[:self.number_of_questions]
+
+    class Meta:
+        verbose_name_plural = 'Quizes'
+
+class Question(models.Model):
+    text = models.CharField(max_length=200)
+    quiz = models.ForeignKey(Quizz, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.text)
+
+    def get_answers(self):
+        return self.answer_set.all()
+
+class Answer(models.Model):
+    text = models.CharField(max_length=200)
+    correct = models.BooleanField(default=False)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"question: {self.question.text}, answer: {self.text}, correct: {self.correct}"
+
+class Result(models.Model):
+    quiz = models.ForeignKey(Quizz, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    score = models.FloatField()
+
+    def __str__(self):
+        return str(self.pk)
+
+
+class BaseModel(models.Model):
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
+
+    class Meta:
+        abstract = True
+
+class BlogPost(BaseModel):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    bpost_id = models.AutoField(primary_key = True, null = False, auto_created = True)
+    title = models.CharField(max_length=100)
+    body = models.TextField()
+    #is_public = models.BooleanField() # 공개여부
+    
+    def __str__(self):
+        return '%s - %s' %(self.bpost_id, self.title)
+
+class Comment(BaseModel):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE) #, limit_choices_to = {'is_public' : True})
+    body = models.TextField()
+    
+    
+    def __str__(self):
+        return self.user.username

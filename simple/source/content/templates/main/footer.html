@@ -20,3 +20,26 @@
     <!-- <input type="file"> -->
     <input type="hidden" name="inputhidden" value="서버로 전송할 값">
 </form>
+
+
+
+<div class = "row">
+    <div class = "col-lg-8 col-md-10 mx-auto">  
+<form method = "POST" action = "{% url 'comment_write' post.bpost_id %}" enctype="multipart/form-data" class = "col-lg-10 col-md-12 mx-auto">
+    {% csrf_token %}
+    <input type = "hidden" name = "post_id" value = "{{post.bpost_id}}">
+    <div class = "form-group row">
+        <textarea class = "form-control" name = "content" rows = "4" placeholder="댓글을 입력해주세요."></textarea>
+    </div>
+    <!-- <div class = "form-group column float-right">
+        <button type = "submit" class = "btn btn-primary">저장</button>
+        <button type = "button" class = "btn btn-secondary"  onclick="moveNotice()">취소</button>
+    </div> -->
+</form>  
+
+<div class = "col-lg-8 col-md-15 mx-auto">
+    <a href = "{% url 'notice' %}" class = "btn btn-secondary float-right">목록</a>
+    <a href = "{% url 'comment_write' post.bpost_id %}" class = "btn btn-primary float-right">댓글쓰기</a>
+</div>
+</div>
+</div>

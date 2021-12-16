@@ -1,0 +1,25 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+
+{% block scripts %}
+    <script src="{% static 'js/quizData.js' %}" defer></script> 
+{% endblock scripts %}
+
+{% block title %} 
+  {{obj.name}} 
+{% endblock title %}
+
+{% block content %}
+  <b>{{obj.name}} </b>
+  <p>커트라인: {{obj.required_score_to_pass}}%</p>
+
+  <form id="quiz-form" class="mt-3 mb-3">
+      {% csrf_token %}
+      <div id="quiz-box"></div>
+      <button type="submit" class="btn btn-primary mt-3">저장</button>
+  </form>  
+  <div id="score-box"></div>
+  <div id="result-box"></div>
+
+{% endblock content %}

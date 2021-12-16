@@ -12,12 +12,11 @@
         {% csrf_token %}
         {% bootstrap_form form %}
 
-        <!-- <table>
-            {{form.as_p}}
-        </table> -->
-        <input type="submit" value="생성" />
-        <input type="button" value="취소" onclick="history.back()"/>
-        
+        <div class = "form-group column float-right">
+            <input type="submit" value="생성" class = "btn btn-primary"/>
+            <input type="button" value="취소" onclick="history.back()" class = "btn btn-secondary"/> 
+        </div>
+        <!-- alert -->
     </form>
 
 {% endblock %}

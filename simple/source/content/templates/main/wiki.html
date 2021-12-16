@@ -11,6 +11,8 @@
             <span class="site-heading-lower">OF BY FOR ~ STUDENT </span>
         </h1>
     </header>
+    <h2 class="display-3">Wiki</h2>
+
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <!-- <div class="container">
@@ -26,7 +28,6 @@
     </nav>
     <div class="row">
         <div class="sidebar">
-            <h2 class="display-3">Wiki</h2>
             <form method="post" action="{% url 'index' %}">
             <!-- {% csrf_token %} -->
                 <!-- {{form.item}} -->
@@ -43,13 +44,13 @@
     <ul>
         {% for post in posts %}
         <!-- <a href="{% url 'wikiPost' post.post_id %}"> <li>{{post.title }}{{post.summary}}{{post.updated_at}}</li> </a> -->
-        <div class="card-columns"> 
+        <div class="card-rows"> 
         <!-- column-count: 4 -->
-            <div class="card bg-light mb-3" style="max-width: 540px;">
+            <div class="card bg-faded p-20 rounded mb-3" style="max-width: 500px;">
                 <div class="row">
-                    <div class="col-md-18">
+                    <div class="col-md-14">
                         <div class="card-body"><a href="{% url 'wikiPost' post.post_id %}">
-                            <h5 class="card-title">{{ post.title }}</h5>
+                            <h5 class="card-title">{{ post.category }} | {{ post.title }}</h5>
                             <p class="card-text">{{post.summary}}</p></a>
                             <p class="card-text">
                                 <small class="text-muted">Created at: {{ post.created_at }}</small><br/>

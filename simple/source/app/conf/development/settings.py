@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     # Application apps
     'main',
     'accounts',
+    # sns share library 
+    'django_social_share',
 ]
 
 MIDDLEWARE = [

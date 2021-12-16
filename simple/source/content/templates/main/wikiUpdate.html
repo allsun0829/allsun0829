@@ -2,6 +2,7 @@
 
 {% load i18n %}
 {% load static %}
+{% load bootstrap4 %}
 
 {% block content %}
 
@@ -11,11 +12,14 @@
         {% csrf_token %}
 
         <table>
-            {{form.as_p}}
+            {% bootstrap_form form %}
         </table>
 
-        <input type="submit" value="수정" />
-        <input type="button" value="취소" onclick="history.back()"/>
+        <div class = "form-group column float-right">
+            <input type="submit" value="수정" class = "btn btn-primary"/>
+            <input type="button" value="취소" onclick="history.back()" class = "btn btn-secondary"/> 
+        </div>
+
     </form>
 
 {% endblock %}
